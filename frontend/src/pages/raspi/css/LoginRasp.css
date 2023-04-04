@@ -1,0 +1,198 @@
+.loginRasp-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #3a3a3a;
+}
+
+.h1-loginRasp {
+  color: #fffafa;
+  font-size: 45px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  line-height: 72px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.input-container-rasp input {
+  border: 0;
+  background: #fffafa;
+  width: 100%;
+  padding: 8px 0 5px 0;
+}
+
+.inputs {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.loginRasp-button-div {
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 4em;
+  top: 70%;
+  left: 81%;
+}
+
+.loginRasp-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fffafa;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Myriad Pro", Arial, sans-serif;
+}
+
+.loginRasp-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #979797;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.loginRasp-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.loginRasp-button:hover {
+  color: #fff;
+}
+
+.loginRasp-button:hover:before {
+  width: 100%;
+}
+
+.keyboard {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  margin-top: 1em;
+  margin-left: 5em;
+  margin-right: 2em;
+  width: 80%;
+}
+
+.rf-login-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fffafa;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Myriad Pro", Arial, sans-serif;
+  margin-top: 1em;
+}
+
+.rf-login-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #979797;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.rf-login-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.rf-login-button:hover {
+  color: #fff;
+}
+
+.rf-login-button:hover:before {
+  width: 100%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal-close {
+  /* Positions- und Stil-Styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}
+
+.modal-close i {
+  color: #aaa;
+  font-size: 18px;
+}

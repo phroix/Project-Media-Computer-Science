@@ -1,0 +1,1524 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger PSWTM - OpenAPI 3.0",
+    "description": "REST API Methods description for our Project",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8800/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "users",
+      "description": "USER Operations Web-App/Terminal"
+    },
+    {
+      "name": "auth",
+      "description": "LOGIN Operations Web-App/Terminal"
+    },
+    {
+      "name": "products",
+      "description": "PRODUCTS Operations Web-App/Terminal"
+    },
+    {
+      "name": "orders",
+      "description": "ORDERS Operations Web-App/Terminal"
+    },
+    {
+      "name": "credits",
+      "description": "CREDIT Operations Web-App"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "POST users as admin (Mitarbeiter Verwalten)",
+        "description": "This can only be done by the logged in admin user.",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "James"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john@email.com"
+                  },
+                  "is_admin": {
+                    "type": "integer",
+                    "description": "User Admin (1 yes, 0 no)",
+                    "format": "int32",
+                    "example": "false"
+                  }
+                },
+                "xml": {
+                  "name": "user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2a$08$kldeLiMkVHZpg/UkJUnaROFLrxVy7Vah9.WTQOtSa7KxGNfauA3R."
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "John"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "James"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "john@email.com"
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "isAdmin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "GET user by username (Mitarbeiter Verwalten)",
+        "description": "Can only used by admin",
+        "operationId": "getUserByName",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "The name that needs to be fetched. Use user1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2a$08$kldeLiMkVHZpg/UkJUnaROFLrxVy7Vah9.WTQOtSa7KxGNfauA3R."
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "John"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "James"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "john@email.com"
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "isAdmin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "GET all user (Mitarbeiter Verwalten)",
+        "description": "Can only used by admin",
+        "operationId": "getUserList",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2a$08$kldeLiMkVHZpg/UkJUnaROFLrxVy7Vah9.WTQOtSa7KxGNfauA3R."
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "John"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "James"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "john@email.com"
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "isAdmin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/users/credit/{user_id}": {
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "PUT existing userCredit (Mitarbeiter Verwalten)",
+        "description": "This can only be done by the logged in user admin.",
+        "operationId": "updateUserCredit",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "name that need to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent user in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "theUser"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "12345"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "James"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john@email.com"
+                  },
+                  "isAdmin": {
+                    "type": "integer",
+                    "description": "User Admin (1 yes, 0 no)",
+                    "format": "int32",
+                    "example": 1
+                  }
+                },
+                "xml": {
+                  "name": "user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "GET user by id (Mitarbeiter Verwalten)",
+        "description": "Can only used by admin",
+        "operationId": "getUserByID",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "The user_id that needs to be fetched. Use 1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2a$08$kldeLiMkVHZpg/UkJUnaROFLrxVy7Vah9.WTQOtSa7KxGNfauA3R."
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "John"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "James"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "john@email.com"
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "isAdmin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "PUT existing users (Mitarbeiter Verwalten)",
+        "description": "This can only be done by the logged in user admin.",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "name that need to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent user in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "theUser"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "12345"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "James"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john@email.com"
+                  },
+                  "isAdmin": {
+                    "type": "integer",
+                    "description": "User Admin (1 yes, 0 no)",
+                    "format": "int32",
+                    "example": 1
+                  }
+                },
+                "xml": {
+                  "name": "user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "summary": "DELETE existing users (Mitarbeiter Verwalten)",
+        "description": "This can only be done by the logged in user admin.",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The name that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST Login User/Admin in Web-App",
+        "description": "Login User/Admin in Web-App.",
+        "operationId": "login",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "firstLogin"
+                  }
+                },
+                "xml": {
+                  "name": "user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "accessToken": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NzM1NDg5NTgsImV4cCI6MTY3MzYzNTM1OH0.O_oxuGw4sSjS_J8pKfVIToQ3R48qIdZtIm07nmBjFMw"
+                    },
+                    "rfid": {
+                      "type": "string",
+                      "example": "521"
+                    },
+                    "is_admin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/loginRFID": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST Login User/Admin in Terminal",
+        "description": "Login User/Admin in Terminal.",
+        "operationId": "loginRFID",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "rfid": {
+                    "type": "string",
+                    "example": "521"
+                  }
+                },
+                "xml": {
+                  "name": "user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "credits": {
+                      "type": "number",
+                      "format": "float",
+                      "example": "0"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John.James"
+                    },
+                    "accessToken": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NzM1NDg5NTgsImV4cCI6MTY3MzYzNTM1OH0.O_oxuGw4sSjS_J8pKfVIToQ3R48qIdZtIm07nmBjFMw"
+                    },
+                    "rfid": {
+                      "type": "string",
+                      "example": "521"
+                    },
+                    "is_admin": {
+                      "type": "integer",
+                      "description": "User Admin (1 yes, 0 no)",
+                      "format": "int32",
+                      "example": "false"
+                    }
+                  },
+                  "xml": {
+                    "name": "user"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "tags": [
+          "products"
+        ],
+        "summary": "POST products as admin (Produkte Verwalten)",
+        "description": "This can only be done by the logged in admin user.",
+        "operationId": "createProducts",
+        "requestBody": {
+          "description": "Created product object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "coffee"
+                  },
+                  "costs": {
+                    "type": "integer",
+                    "format": "float",
+                    "example": 2.6
+                  }
+                },
+                "xml": {
+                  "name": "product"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 10
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "coffee"
+                    },
+                    "costs": {
+                      "type": "integer",
+                      "format": "float",
+                      "example": 2.6
+                    }
+                  },
+                  "xml": {
+                    "name": "product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "GET products by product name (Produkte Verwalten)",
+        "description": "Can only used by admin",
+        "operationId": "getProductByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name that needs to be fetched. Use product1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 10
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "coffee"
+                    },
+                    "costs": {
+                      "type": "integer",
+                      "format": "float",
+                      "example": 2.6
+                    }
+                  },
+                  "xml": {
+                    "name": "product"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid productname supplied"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      }
+    },
+    "/products/list": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "GET all products (Produkte Verwalten)",
+        "description": "Can be used by everbody",
+        "operationId": "getProductsList",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name that needs to be fetched. Use product1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product_id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 10
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "coffee"
+                    },
+                    "costs": {
+                      "type": "integer",
+                      "format": "float",
+                      "example": 2.6
+                    }
+                  },
+                  "xml": {
+                    "name": "product"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid productname supplied"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      }
+    },
+    "/products/{productID}": {
+      "put": {
+        "tags": [
+          "products"
+        ],
+        "summary": "PUT existing product (Produkte Verwalten)",
+        "description": "This can only be done by the logged in user admin.",
+        "operationId": "updateProduct",
+        "parameters": [
+          {
+            "name": "productname",
+            "in": "path",
+            "description": "name that need to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent product in the db",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "product_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 10
+                  },
+                  "product_name": {
+                    "type": "string",
+                    "example": "coffee"
+                  },
+                  "product_quantity": {
+                    "type": "integer",
+                    "example": 2
+                  },
+                  "product_costs": {
+                    "type": "integer",
+                    "format": "float",
+                    "example": 2.6
+                  }
+                },
+                "xml": {
+                  "name": "product"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "products"
+        ],
+        "summary": "DELETE existing product (Produkte Verwalten)",
+        "description": "This can only be done by the logged in user admin.",
+        "operationId": "deleteProduct",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The name that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid product supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "POST an order for a product",
+        "description": "Place a new order in the Terminal",
+        "operationId": "placeOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "product_id": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "example": 7
+                  },
+                  "product_name": {
+                    "type": "string",
+                    "example": "coffee"
+                  },
+                  "product_costs": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 2.5
+                  }
+                },
+                "xml": {
+                  "name": "order"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "order_id": {
+                      "type": "integer",
+                      "example": 5
+                    },
+                    "user_id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "product_id": {
+                      "type": "integer",
+                      "example": 10
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "example": 7
+                    },
+                    "product_name": {
+                      "type": "string",
+                      "example": "coffee"
+                    },
+                    "product_costs": {
+                      "type": "integer",
+                      "format": "float",
+                      "example": 2.6
+                    },
+                    "date": {
+                      "type": "string",
+                      "description": "date in echter datenbank",
+                      "format": "date-time",
+                      "example": "15.11.2022"
+                    }
+                  },
+                  "xml": {
+                    "name": "order"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "GET product history by date",
+        "description": "Returns a map of status codes to quantities",
+        "operationId": "getOrderByDate",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "The user_id that needs to be fetched. Use 1 for testing.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "The month that needs to be fetched. Use Oktober for testing.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/credits": {
+      "get": {
+        "tags": [
+          "credits"
+        ],
+        "summary": "GET credit history by date",
+        "description": "Returns a map of status codes to quantities",
+        "operationId": "getCreditByDate",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "The user_id that needs to be fetched. Use 1 for testing.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "The month that needs to be fetched. Use Oktober for testing.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "username": {
+            "type": "string",
+            "example": "theUser"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345"
+          },
+          "rfid": {
+            "type": "string",
+            "example": "5521"
+          },
+          "credits": {
+            "type": "number",
+            "format": "float",
+            "example": "20"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "James"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@email.com"
+          },
+          "is_admin": {
+            "type": "integer",
+            "description": "User Admin (1 yes, 0 no)",
+            "format": "int32",
+            "example": 1
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "name": {
+            "type": "string",
+            "example": "coffee"
+          },
+          "costs": {
+            "type": "integer",
+            "format": "float",
+            "example": 2.6
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "integer",
+            "example": 5
+          },
+          "date": {
+            "type": "string",
+            "description": "date of order",
+            "format": "date-time",
+            "example": "15.11.2022"
+          },
+          "user_id": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Contains": {
+        "type": "object",
+        "properties": {
+          "contain_id": {
+            "type": "integer",
+            "example": 5
+          },
+          "quantity": {
+            "type": "integer",
+            "example": "4"
+          },
+          "product_name": {
+            "type": "string",
+            "example": "coffee"
+          },
+          "product_costs": {
+            "type": "integer",
+            "format": "float",
+            "example": 2.6
+          },
+          "product_id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "order_id": {
+            "type": "integer",
+            "example": 5
+          }
+        }
+      },
+      "Credit": {
+        "type": "object",
+        "properties": {
+          "credits_id": {
+            "type": "integer",
+            "example": 5
+          },
+          "date": {
+            "type": "string",
+            "description": "date of credit change",
+            "format": "date-time",
+            "example": "15.11.2022"
+          },
+          "charged_amount": {
+            "type": "number",
+            "format": "float",
+            "example": "20"
+          },
+          "old_amount": {
+            "type": "number",
+            "format": "float",
+            "example": "20"
+          },
+          "new_amount": {
+            "type": "number",
+            "format": "float",
+            "example": "20"
+          },
+          "user_id": {
+            "type": "integer",
+            "example": 5
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "User": {
+        "description": "Users object that needs to be added to the db",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "theUser"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "12345"
+                },
+                "rfid": {
+                  "type": "string",
+                  "example": "5521"
+                },
+                "credits": {
+                  "type": "number",
+                  "format": "float",
+                  "example": "20"
+                },
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "James"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john@email.com"
+                },
+                "is_admin": {
+                  "type": "integer",
+                  "description": "User Admin (1 yes, 0 no)",
+                  "format": "int32",
+                  "example": 1
+                }
+              },
+              "xml": {
+                "name": "user"
+              }
+            }
+          }
+        }
+      },
+      "Product": {
+        "description": "Products object that needs to be added to the db",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 10
+                },
+                "name": {
+                  "type": "string",
+                  "example": "coffee"
+                },
+                "costs": {
+                  "type": "integer",
+                  "format": "float",
+                  "example": 2.6
+                }
+              },
+              "xml": {
+                "name": "product"
+              }
+            }
+          }
+        }
+      },
+      "Order": {
+        "description": "Products object that needs to be added to the db",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "integer",
+                  "example": 5
+                },
+                "date": {
+                  "type": "string",
+                  "description": "date of order",
+                  "format": "date-time",
+                  "example": "15.11.2022"
+                },
+                "user_id": {
+                  "type": "integer",
+                  "example": 1
+                }
+              },
+              "xml": {
+                "name": "order"
+              }
+            }
+          }
+        }
+      },
+      "Contains": {
+        "description": "Contains object that Relationship between oders & products",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contain_id": {
+                  "type": "integer",
+                  "example": 5
+                },
+                "quantity": {
+                  "type": "integer",
+                  "example": "4"
+                },
+                "product_name": {
+                  "type": "string",
+                  "example": "coffee"
+                },
+                "product_costs": {
+                  "type": "integer",
+                  "format": "float",
+                  "example": 2.6
+                },
+                "product_id": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 10
+                },
+                "order_id": {
+                  "type": "integer",
+                  "example": 5
+                }
+              },
+              "xml": {
+                "name": "contains"
+              }
+            }
+          }
+        }
+      },
+      "Credit": {
+        "description": "Credit object that which displays usercredit history",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "credits_id": {
+                  "type": "integer",
+                  "example": 5
+                },
+                "date": {
+                  "type": "string",
+                  "description": "date of credit change",
+                  "format": "date-time",
+                  "example": "15.11.2022"
+                },
+                "charged_amount": {
+                  "type": "number",
+                  "format": "float",
+                  "example": "20"
+                },
+                "old_amount": {
+                  "type": "number",
+                  "format": "float",
+                  "example": "20"
+                },
+                "new_amount": {
+                  "type": "number",
+                  "format": "float",
+                  "example": "20"
+                },
+                "user_id": {
+                  "type": "integer",
+                  "example": 5
+                }
+              },
+              "xml": {
+                "name": "credit"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://petstore3.swagger.io/oauth/authorize",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}

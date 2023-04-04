@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-simple-keyboard": "^3.5.4",
+    "simple-keyboard": "^3.5.2",
+    "simple-keyboard-layouts": "^3.1.257"
+  }
+}

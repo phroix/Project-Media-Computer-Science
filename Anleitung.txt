@@ -1,0 +1,8 @@
+Docker starten -- docker-compose up
+CMD: docker exec -it projekt-medieninformatik-kaffeekasse-mysql-1 mysql -uuser -p
+--> password: mypassword123
+
+docker redeployen
+
+
+

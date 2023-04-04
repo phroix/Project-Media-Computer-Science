@@ -1,0 +1,190 @@
+.login-container {
+  background: url("../../../pictures/Background.png");
+  background-size: cover;
+  background-position: center top;
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat scroll;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+  object-fit: contain;
+}
+
+.container-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+}
+
+.container-rigth {
+  background: url("../../../pictures/background-login.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  width: 25%;
+  height: 100%;
+  background-color: #fffafa;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.h1-login {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 80px;
+  color: #fff;
+  font-family: "Myriad Pro", Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.h2-login {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  color: #000;
+  margin-top: 4em;
+
+  font-family: "Myriad Pro", Arial, sans-serif;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.text-center {
+  text-transform: uppercase;
+  font-size: 25px;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box1 {
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 2em;
+  border-radius: 18px;
+}
+
+.box2 {
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 2em;
+  border-radius: 18px;
+}
+
+.input-container {
+  margin: auto;
+  border: 0;
+  width: 80%;
+  padding: 8px 0 5px 0;
+}
+
+.login-button-div {
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 4em;
+  top: 70%;
+  left: 81%;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Myriad Pro", Arial, sans-serif;
+}
+
+.login-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3a3a3a;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.login-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.login-button:hover {
+  color: #fff;
+}
+
+.login-button:hover:before {
+  width: 100%;
+}
+
+.inputs {
+  color: #000;
+  background-color: #dbe8e9;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.inputs::placeholder {
+  color: #000;
+}
+
+@media screen and (max-width: 960px) {
+  .container-left {
+    width: 0px;
+    height: 0px;
+  }
+
+  .container-rigth {
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  .h2-login {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    margin-top: 3em;
+
+    font-family: "Myriad Pro", Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+}

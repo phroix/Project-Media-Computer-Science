@@ -1,0 +1,148 @@
+.scan-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #3a3a3a;
+}
+
+.h1-scan {
+  color: #fffafa;
+  font-size: 45px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  line-height: 72px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1em;
+}
+
+.div-scan {
+  color: #fffafa;
+  font-size: 25px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  line-height: 72px;
+  text-align: center;
+  text-transform: uppercase;
+  /*margin-top: 0.5em;*/
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 5em;
+}
+
+.button-scan {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fffafa;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Myriad Pro", Arial, sans-serif;
+  width: 200px;
+  margin: auto;
+}
+
+.button-scan:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #979797;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.button-scan:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.button-scan:hover {
+  color: #fff;
+}
+
+.button-scan:hover:before {
+  width: 100%;
+}
+/*
+  .rfid-icon{
+      background: url('../../bilder/Rfid-icon.png');
+      background-size: cover;
+      width: 25%;
+      height: 35%;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      margin: auto;
+  }*/
+
+/*NEW*/
+.button-continue {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fffafa;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Myriad Pro", Arial, sans-serif;
+  width: 400px;
+  margin: auto;
+}
+
+.button-continue:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #979797;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.button-continue:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.button-continue:hover {
+  color: #fff;
+}
+
+.button-continue:hover:before {
+  width: 100%;
+}

@@ -1,0 +1,466 @@
+/*container for page*/
+.mverwalten-container {
+  /* background: url('../../bilder/Background.png');
+    background-size: cover;
+    background-position: center top;
+    */
+  min-height: 100vh;
+  width: 100%;
+  background-color: #3a3a3a;
+  background-repeat: no-repeat scroll;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+}
+
+.component-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20em;
+  gap: 1em;
+}
+
+.component-container-mitarbeiter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20em;
+  gap: 10em;
+}
+
+.h1-mverwalten {
+  color: #fffafa;
+  font-size: 45px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  line-height: 72px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/*Pages-containers */
+.mhinzu-container {
+  width: 50vh;
+  height: 40vh;
+}
+
+.msuchen-container {
+  width: 90vh;
+  height: 70vh;
+}
+
+/*Mhinzu page */
+
+.mh-input-container {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.mh-input-container-mitarbeiter {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.mh-input {
+  background-color: lightgrey;
+  margin-top: 2em;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+
+  border-radius: 18px;
+  text-align: center;
+}
+
+.mh-input::placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.mh-label {
+  color: #fff;
+  margin-top: 2em;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.mh-label-head {
+  margin-left: 0.5;
+  margin-right: 7em;
+}
+
+.toggler-wrapper.style-3
+  input[type="checkbox"]:checked
+  + .toggler-slider
+  .toggler-knob {
+  left: calc(100% - 19px - 3px);
+}
+
+.toggler-wrapper.style-3 .toggler-knob {
+  width: calc(25px + 6px);
+  height: calc(25px + 6px);
+  border-radius: 50%;
+  left: -3px;
+  top: -3px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+  box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+}
+
+.toggler-wrapper {
+  display: block;
+  width: 45px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggler-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.toggler-wrapper input[type="checkbox"]:checked + .toggler-slider {
+  background-color: #44cc66;
+}
+
+.toggler-wrapper .toggler-slider {
+  background-color: #ccc;
+  position: absolute;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.toggler-wrapper .toggler-knob {
+  position: absolute;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.mh-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 50px;
+  width: 200px;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 2.5em;
+}
+
+.mh-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.mh-button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: lightgrey;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.mh-button:hover {
+  color: #000;
+}
+
+.mh-button:hover:before {
+  width: 100%;
+}
+
+.mh-massage {
+  text-align: center;
+  color: #fff;
+  margin-top: 3em;
+  font-size: 25px;
+}
+
+/*msuchchen Page */
+
+.ms-input {
+  background-color: lightgrey;
+  width: 40%;
+  height: 40px;
+  margin-left: 1em;
+  border-radius: 18px;
+  margin: auto;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.ms-input::placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.ms-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-first {
+  border-collapse: collapse;
+  margin: 20px 0 0 -15%;
+  font-size: 20px;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(224, 224, 224, 0.3);
+  margin: auto;
+}
+
+.table-first thead tr {
+  background-color: rgba(200, 210, 10, 0.7);
+  color: #ffffff;
+  text-align: left;
+}
+
+.table-first th,
+.table-first td {
+  padding: 12px 15px;
+  text-align: center;
+  word-break: normal;
+}
+
+.table-first tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-first tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table-first tbody tr:last-of-type {
+  border-bottom: 2px solid rgba(200, 210, 10, 0.7);
+}
+
+.table-first tbody tr.active-row {
+  font-weight: bold;
+  color: rgba(200, 210, 10, 0.7) 9;
+}
+
+/*NEEW*/
+.ttable-first {
+  border-collapse: collapse;
+  margin: 20px 0 0 0;
+  font-size: 20px;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(224, 224, 224, 0.3);
+}
+
+.ttable-first thead tr {
+  background-color: rgba(200, 210, 10, 0.7);
+  color: #ffffff;
+  text-align: left;
+}
+
+.ttable-first th,
+.ttable-first td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.ttable-first tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.ttable-first tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.ttable-first tbody tr:last-of-type {
+  border-bottom: 2px solid rgba(200, 210, 10, 0.7);
+}
+
+.ttable-first tbody tr.active-row {
+  font-weight: bold;
+  color: rgba(200, 210, 10, 0.7) 9;
+}
+
+.ms-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/*Update section*/
+.ms-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ms-input-update {
+  background-color: lightgrey;
+  width: 27em;
+  height: 40px;
+  margin-left: 1em;
+  border-radius: 18px;
+
+  margin: auto;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.ms-input-update::placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.text-message {
+  color: white;
+  text-align: center;
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 960px) {
+  .h1-mverwalten {
+    color: #3a3a3a;
+    font-size: 25px;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 800;
+    line-height: 72px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 3em;
+  }
+
+  .component-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10em;
+    width: 100%;
+    background-color: #3a3a3a;
+  }
+
+  .mhinzu-container {
+    width: 70%;
+    height: auto;
+  }
+
+  .msuchen-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    background-color: #3a3a3a;
+  }
+
+  .ms-input {
+    background-color: lightgrey;
+    width: 50%;
+    height: 40px;
+    margin-left: 1em;
+    border-radius: 18px;
+
+    margin: auto;
+    margin-top: 2em;
+  }
+
+  .ms-input::placeholder {
+    color: #000;
+    text-align: center;
+  }
+
+  /* TABLE */
+  .ms-input-container {
+    width: 100%;
+    align-items: center;
+  }
+
+  .table-first {
+    font-size: 12px;
+    margin: auto;
+  }
+
+  .ttable-first {
+    font-size: 15px;
+    margin: auto;
+  }
+
+  .table-first th,
+  .table-first td {
+    width: 15px;
+    padding: 0px 0px;
+    word-break: break-all;
+  }
+
+  .ttable-first th,
+  .ttable-first td {
+    word-break: break-all;
+  }
+
+  .ms-button-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ms-input-update {
+    background-color: lightgrey;
+    width: 14em;
+    height: 40px;
+    margin-left: 1em;
+    border-radius: 18px;
+
+    margin: auto;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  .ms-input-update::placeholder {
+    color: #000;
+    text-align: center;
+  }
+}
